@@ -10,7 +10,7 @@ def validPalindrome(s):
     if left >= right:
         return True
 
-    return isPalindrome(s, left + 1, right) or\ isPalindrome(s, left, right - 1)
+    return isPalindrome(s, left + 1, right) or isPalindrome(s, left, right - 1)
 
 def isPalindrome(s, left, right):
     left, right = findDifference(s, left, right)
