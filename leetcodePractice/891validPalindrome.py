@@ -6,14 +6,14 @@ def validPalindrome(s):
     if s is None:
         return False
     
-    left, right = self.findDifference(s, 0, len(s) - 1)
+    left, right = findDifference(s, 0, len(s) - 1)
     if left >= right:
         return True
 
     return isPalindrome(s, left + 1, right) or\ isPalindrome(s, left, right + 1)
 
 def isPalindrome(s, left, right):
-    left, right = self.findDifference(s, left, right)
+    left, right = findDifference(s, left, right)
     return left >= right
 
 def findDifference(s, left, right):
