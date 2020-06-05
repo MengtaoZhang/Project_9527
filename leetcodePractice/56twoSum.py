@@ -38,15 +38,21 @@ def twoSum(numbers, target):
 In this way, we will need O(nlog) Time Complexity and O(1) Space Complexity
 '''
 def twoSum(numbers, target):
-    numbers.sort()
+    if not numbers:
+        return [-1, -1]
 
-    left, right = 0, len(numbers) - 1
+    nums = [
+        (number, index)
+        for index, number in enumerate(numbers)
+    ]
+    nums.sort()
+    
+    left, right = 0, len(nums) - 1
     while left < right:
-        if numbers[left] + numbers[right] > target:
+        if nums[left][0] + nums[right][0] > target:
             right -= 1
-        elif numbers[left] + numbers[right] < target:
+        elif nums[left][0] + nums[right][0] < target:
             left += 1
         else:
-            return numbers[left], numbers[right]
-    
-return [-1, -1]
+            return sorted([nums[left][1], nums[right][1]])
+    return [-1, -1]
