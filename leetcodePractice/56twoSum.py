@@ -1,5 +1,7 @@
 '''
 Find two nums adding together equaling with target.
+
+In the first two methods, it will cost O(n) in Time and Space Complexity
 '''
 
 def twoSum(numbers, target):
@@ -29,3 +31,22 @@ def twoSum(numbers, target):
             return [target_dict[target - numbers[i]], i]
         taret_dict[numbers[i]] = i
     return False
+
+
+# Use sort and two pointer approach to solve.
+'''
+In this way, we will need O(nlog) Time Complexity and O(1) Space Complexity
+'''
+def twoSum(numbers, target):
+    numbers.sort()
+
+    left, right = 0, len(numbers) - 1
+    while left < right:
+        if numbers[left] + numbers[right] > target:
+            right -= 1
+        elif numbers[left] + numbers[right] < target:
+            left += 1
+        else:
+            return numbers[left], numbers[right]
+    
+return [-1, -1]
