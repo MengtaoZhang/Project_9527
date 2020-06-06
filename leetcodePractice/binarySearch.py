@@ -9,8 +9,10 @@ def binarySearch(nums, target):
     return binarySearch(nums, 0, len(nums) - 1, target)
 
 def binarySearch(nums, start, end, target):
+    if start > end:
+        return -1   
+
     middle = int((start + end) / 2)
-    
     if nums[middle] == target:
         return middle
     elif nums[middle] < target:
