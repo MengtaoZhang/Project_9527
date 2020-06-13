@@ -1,3 +1,6 @@
+// 这种实现方式会造成部分内存无法使用
+
+
 public class MyQueue{
 	public int head, tail;
 	public int MAXSIZE = 100000;
